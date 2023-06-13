@@ -5,6 +5,7 @@ import createDebug from 'debug';
 import { sampleRouter } from './routers/sample.router.js';
 import { bookRouter } from './routers/book.router.js';
 import { errorHandler } from './middleware/error.js';
+import { filmRouter } from './routers/film.router.js';
 const debug = createDebug('W6:App');
 
 export const app = express();
@@ -26,10 +27,11 @@ app.use((_req, _res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello Express!');
+  res.send(`<h1>Literally the teacher's repo, with films)<h1>`);
 });
 
 app.use('/sample', sampleRouter);
 app.use('/book', bookRouter);
+app.use('/films', filmRouter);
 
 app.use(errorHandler);

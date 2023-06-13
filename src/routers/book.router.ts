@@ -3,11 +3,11 @@ import { BookController } from '../controllers/book.controller.js';
 import { BookRepo } from '../repository/book.mongo.repository.js';
 import { Repo } from '../repository/repo.js';
 import { Book } from '../entities/book.js';
-
 import createDebug from 'debug';
+
 const debug = createDebug('W6:BookRouter');
 
-debug('Executed');
+debug('Book router executed');
 
 const repo: Repo<Book> = new BookRepo();
 const controller = new BookController(repo);

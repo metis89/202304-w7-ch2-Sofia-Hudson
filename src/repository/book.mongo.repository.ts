@@ -18,6 +18,7 @@ export class BookRepo implements Repo<Book> {
 
   async queryById(id: string): Promise<Book> {
     const result = await BookModel.findById(id).exec();
+
     if (result === null)
       throw new HttpError(404, 'Not found', 'Bad id for the query');
     return result;
@@ -35,7 +36,6 @@ export class BookRepo implements Repo<Book> {
 
     if (newBook === null)
       throw new HttpError(404, 'Not found', 'Bad id for the update');
-
     return newBook;
   }
 
